@@ -1,0 +1,94 @@
+====================================================
+COGNISYNC — DEPTH & FEATURE IDEAS
+====================================================
+
+--- MAKE IT ACTUALLY USEFUL (High Value) ---
+
+1. Calendar Export
+   Detected deadlines → export as .ics or push to Google Calendar.
+   This alone makes the app worth opening every week.
+
+2. Multi-Document Synthesis
+   Upload a whole course folder → get one unified weekly action plan.
+   "Here's everything due this week across all your classes."
+
+3. Complexity Heatmap
+   Highlight sentences by cognitive load (green → red) in the original text.
+   Users see exactly where the friction is, not just a score.
+
+4. Saved Sessions / History
+   Let users save processed documents locally (localStorage or IndexedDB).
+   Come back to last week's syllabus without re-uploading.
+
+5. Shareable Output
+   Generate a shareable link or PDF export of the simplified version.
+   Students share with study groups, tutors, or accessibility offices.
+
+--- INTEGRATIONS (Unlock Real Workflows) ---
+
+6. LMS Browser Extension
+   Chrome/Firefox extension that detects Canvas/Blackboard pages and adds a
+   "Simplify with CogniSync" button inline. Zero friction.
+
+7. Google Drive / OneDrive Import
+   Pick a file directly from cloud storage instead of downloading first.
+
+8. Notion / Obsidian Export
+   Export key points and tasks directly into a Notion page or Obsidian note.
+
+9. Slack / Discord Bot
+   Paste a document link in a study server → bot replies with the summary.
+
+--- MORE USER CONTROL ---
+
+10. Custom Profiles
+    Let users build their own profile (font size, chunk size, tone, contrast).
+    Save it. Not everyone fits ADHD/Dyslexia/Anxiety boxes.
+
+11. Highlight & Ask
+    Select any sentence in the simplified output → ask a follow-up question.
+    "What does this mean?" / "Give me an example."
+
+12. Glossary Mode
+    Auto-detect jargon/domain terms → build a mini glossary card at the bottom.
+    Huge for first-gen and ESL students.
+
+13. Audio Read-Aloud
+    Text-to-speech for the simplified content and key points.
+    Uses browser Web Speech API — no extra cost.
+
+14. Task Due Date Editing
+    Let users manually edit/confirm detected deadlines before exporting.
+    AI gets it wrong sometimes — give users the override.
+
+--- ENGAGEMENT / STICKINESS ---
+
+15. Weekly Digest
+    If multi-doc is built: email or push notification with "Your week at a glance."
+
+16. Comparison View (already in Ideas.txt)
+    Side-by-side original vs. simplified with live complexity reduction %.
+    Great for demos, great for users who want to see the value.
+
+17. Annotation Layer
+    Let users highlight and add personal notes on top of the simplified output.
+    Saves with the session.
+
+--- QUICK WINS (Low Effort, High Impact) ---
+
+18. URL Ingestion
+    Paste a URL → scrape and process the page content.
+    Works for online syllabi, articles, assignment pages.
+
+19. Keyboard Shortcuts
+    Power users want to navigate Focus View, toggle modes, etc. without mouse.
+
+20. Dark / Light / High Contrast Themes
+    High contrast is a real accessibility need, not just a preference.
+
+====================================================
+PRIORITY SUGGESTION (if you had to pick 3 to build next):
+  1. Saved Sessions — makes it a tool you return to, not a one-off
+  2. Calendar Export — tangible, daily-life utility
+  3. URL Ingestion — removes the biggest friction point (downloading files)
+====================================================

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CogniSync — AI Academic Assistant</title>
+    <meta name="description" content="Transform dense academic content into clear, structured insights. AI-powered simplification adapted to your learning style." />
+    <meta name="theme-color" content="#6366f1" />
+
+    <!-- Apply theme before first paint to prevent flash -->
+    <script>
+      (function() {
+        var stored = localStorage.getItem('cogni-theme');
+        // Default to dark
+        var theme = stored === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        // Set bg color immediately to prevent white flash
+        document.documentElement.style.backgroundColor = theme === 'dark' ? '#0d1424' : '#ffffff';
+      })();
+    </script>
+
+    <!-- Inter font — full weight range -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+      html { background-color: #0d1424; }
+      [data-theme="light"] html { background-color: #ffffff; }
+      body { font-family: 'Inter', system-ui, sans-serif; }
+    </style>
+
+    <!-- Print styles -->
+    <style>
+      @media print {
+        .navbar, .fab-main, .fab-actions, button:not([type="submit"]) { display: none !important; }
+        body { background: white !important; color: black !important; font-family: Georgia, serif !important; }
+        .cs-card { box-shadow: none !important; border: 1px solid #ccc !important; break-inside: avoid; }
+        .cs-collapsible-grid { grid-template-rows: 1fr !important; }
+        a[href]::after { content: " (" attr(href) ")"; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

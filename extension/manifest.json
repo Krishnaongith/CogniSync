@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "CogniSync",
+  "version": "1.0.0",
+  "description": "Simplify LMS content with CogniSync",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.instructure.com/*", "*://*.blackboard.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "CogniSync"
+  }
+}

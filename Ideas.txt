@@ -1,0 +1,18 @@
+A web app that uses AI to transform dense academic content (syllabi, assignments) into simplified, structured formats — reducing cognitive overload for students with hidden cognitive challenges through adaptive reading modes, actionable task extraction, and real-time complexity scoring.
+
+MVP:
+Document upload (PDF/text paste) for syllabi and assignments
+AI-powered key point extraction — pulls out the "what you need to know"
+Actionable task list generation — converts vague instructions into clear to-dos with implied deadlines
+Two reading modes: Focus View (one concept at a time) and Step-by-Step View (numbered instructions)
+Cognitive load score — a simple before/after complexity metric (e.g., Flesch-Kincaid or token density) shown visually
+Plain language rewriting — strips jargon and rewrites at a lower reading level
+
+Wow feature:
+Live complexity heatmap — highlights which sentences/paragraphs are the densest, color-coded by cognitive load, so users can see exactly where the friction is
+
+Priority matrix — auto-categorizes tasks by urgency and importance, not just lists them
+"Explain like I'm a freshman" slider — a real-time complexity dial that rewrites content at different levels as you drag it
+Calendar export — detected deadlines get pushed directly to Google Calendar or exported as .ics
+Comparison view — side-by-side original vs. simplified with a live "complexity reduction %" counter, great for demoing impact
+Multi-document synthesis — upload an entire course's worth of materials and get a unified weekly action pl

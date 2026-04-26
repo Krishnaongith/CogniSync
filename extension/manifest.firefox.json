@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "CogniSync",
+  "version": "1.0.0",
+  "description": "Simplify LMS content with CogniSync",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.instructure.com/*", "*://*.blackboard.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "cognisync@extension"
+    }
+  }
+}
