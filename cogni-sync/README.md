@@ -41,8 +41,8 @@ export const defaultConfig: ProcessorConfig = {
 };
 ```
 
-- `useMock: false` — sends requests to the local server at `http://localhost:3001`. Requires the server to be running with valid AWS credentials.
-- `useMock: true` — returns hardcoded fixture data with a simulated delay; no server or AWS credentials needed.
+- `useMock: false` — sends requests to the local server at `http://localhost:3001`. Requires the server to be running with a valid `ANTHROPIC_API_KEY`.
+- `useMock: true` — returns hardcoded fixture data with a simulated delay; no server or API key needed.
 
 To develop without the backend, set `useMock: true` in `defaultConfig`.
 

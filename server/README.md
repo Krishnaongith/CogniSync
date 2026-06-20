@@ -1,12 +1,12 @@
 # cogni-sync-server — Backend
 
-Express server that proxies requests to AWS Bedrock (Amazon Nova Pro) to simplify academic content.
+Express server that proxies requests to the Anthropic Claude API to simplify academic content.
 
 ## Prerequisites
 
 - Node.js 18+
 - npm 9+
-- AWS credentials with access to Bedrock in `us-east-2`
+- An Anthropic API key (get one at [console.anthropic.com](https://console.anthropic.com))
 
 ## Install & Run
 
@@ -18,19 +18,17 @@ npm run dev      # node --watch index.js (auto-restarts on file change)
 
 The server listens on **port 3001** and accepts requests from `http://localhost:5173` (CORS).
 
-## AWS Credentials
+## API Key
 
-The server uses the [AWS SDK default credential chain](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/setting-credentials-node.html). Set credentials via environment variables before starting:
+Set your Anthropic API key as an environment variable before starting the server:
 
 ```bash
-export AWS_ACCESS_KEY_ID=...
-export AWS_SECRET_ACCESS_KEY=...
-export AWS_SESSION_TOKEN=...   # if using temporary credentials
+export ANTHROPIC_API_KEY=sk-ant-...
 ```
 
-> **Note:** The server does not use dotenv. Credentials must be exported in your shell session before running `npm start` — creating a `.env` file will have no effect.
+> **Note:** The server does not use dotenv. The key must be exported in your shell session before running `npm start` — creating a `.env` file will have no effect.
 
-The Bedrock client is hardcoded to region `us-east-2` and model `us.amazon.nova-pro-v1:0`.
+The server uses model `claude-haiku-4-5` (fast and cost-effective for text simplification).
 
 ## API Endpoints
 
