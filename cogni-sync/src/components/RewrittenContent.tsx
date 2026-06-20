@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback } from 'react';
+import { API_BASE } from '../config';
 import type { AskResult, JargonTerm } from '../types';
 import { addAnswer } from './askAnswerManager';
 
@@ -55,7 +56,7 @@ export function RewrittenContent({ rewrittenText, originalText, glossaryTerms }:
     e.preventDefault();
     setQuestionState(q => ({ ...q, loading: true, error: null }));
     try {
-      const res = await fetch('http://localhost:3001/ask', {
+      const res = await fetch(`${API_BASE}/ask`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -80,45 +81,70 @@ export function RewrittenContent({ rewrittenText, originalText, glossaryTerms }:
 
   const hasFailed = !rewrittenText || rewrittenText.trim().length === 0;
 
-  // Build highlighted text segments for glossary terms
-  function renderTextWithGlossary() {
-    if (!glossaryTerms || glossaryTerms.length === 0) {
-      return <p style={{ whiteSpace: 'pre-wrap', lineHeight: 1.7, color: 'var(--text-primary)' }}>{rewrittenText}</p>;
-    }
+  // Render a single line of text, applying bold (**text**) and glossary underlines
+  function renderInline(line: string, glossary: typeof glossaryTerms) {
+    // Split on **bold** markers
+    const boldParts = line.split(/(\*\*[^*]+\*\*)/g);
+    const nodes: React.ReactNode[] = [];
 
-    // Build a regex that matches any of the terms (case-insensitive)
-    const escaped = glossaryTerms.map(t => t.term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-    const pattern = new RegExp(`(${escaped.join('|')})`, 'gi');
-    const parts = rewrittenText.split(pattern);
+    boldParts.forEach((segment, bi) => {
+      const boldMatch = segment.match(/^\*\*(.+)\*\*$/);
+      const text = boldMatch ? boldMatch[1] : segment;
+      const isBold = !!boldMatch;
 
-    return (
-      <p style={{ whiteSpace: 'pre-wrap', lineHeight: 1.7, color: 'var(--text-primary)' }}>
-        {parts.map((part, i) => {
-          const matchedTerm = glossaryTerms.find(
-            t => t.term.toLowerCase() === part.toLowerCase()
+      if (!glossary || glossary.length === 0) {
+        nodes.push(isBold ? <strong key={bi}>{text}</strong> : <span key={bi}>{text}</span>);
+        return;
+      }
+
+      const escaped = glossary.map(t => t.term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+      const pattern = new RegExp(`(${escaped.join('|')})`, 'gi');
+      const subParts = text.split(pattern);
+
+      const inner = subParts.map((sub, si) => {
+        const matched = glossary.find(t => t.term.toLowerCase() === sub.toLowerCase());
+        if (matched) {
+          return (
+            <span
+              key={si}
+              tabIndex={0}
+              style={{ borderBottom: '2px dotted #6366f1', cursor: 'pointer' }}
+              onClick={e => {
+                const rect = (e.target as HTMLElement).getBoundingClientRect();
+                setGlossaryPopover({ term: matched, x: rect.left + rect.width / 2, y: rect.top - 8 });
+              }}
+              onFocus={e => {
+                const rect = (e.target as HTMLElement).getBoundingClientRect();
+                setGlossaryPopover({ term: matched, x: rect.left + rect.width / 2, y: rect.top - 8 });
+              }}
+            >
+              {sub}
+            </span>
           );
-          if (matchedTerm) {
-            return (
-              <span
-                key={i}
-                tabIndex={0}
-                style={{ borderBottom: '2px dotted #6366f1', cursor: 'pointer' }}
-                onClick={e => {
-                  const rect = (e.target as HTMLElement).getBoundingClientRect();
-                  setGlossaryPopover({ term: matchedTerm, x: rect.left + rect.width / 2, y: rect.top - 8 });
-                }}
-                onFocus={e => {
-                  const rect = (e.target as HTMLElement).getBoundingClientRect();
-                  setGlossaryPopover({ term: matchedTerm, x: rect.left + rect.width / 2, y: rect.top - 8 });
-                }}
-              >
-                {part}
-              </span>
-            );
-          }
-          return part;
+        }
+        return sub;
+      });
+
+      nodes.push(isBold ? <strong key={bi}>{inner}</strong> : <span key={bi}>{inner}</span>);
+    });
+
+    return nodes;
+  }
+
+  // Build highlighted text segments for glossary terms, with markdown rendering
+  function renderTextWithGlossary() {
+    const lines = rewrittenText.split('\n');
+    return (
+      <div style={{ lineHeight: 1.7, color: 'var(--text-primary)' }}>
+        {lines.map((line, i) => {
+          const h2 = line.match(/^##\s+(.+)/);
+          const h3 = line.match(/^###\s+(.+)/);
+          if (h2) return <h2 key={i} style={{ fontSize: 17, fontWeight: 700, margin: '20px 0 8px' }}>{h2[1]}</h2>;
+          if (h3) return <h3 key={i} style={{ fontSize: 15, fontWeight: 600, margin: '16px 0 6px' }}>{h3[1]}</h3>;
+          if (line.trim() === '') return <div key={i} style={{ height: 10 }} />;
+          return <p key={i} style={{ margin: '0 0 8px' }}>{renderInline(line, glossaryTerms)}</p>;
         })}
-      </p>
+      </div>
     );
   }
 

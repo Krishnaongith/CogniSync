@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
+import React, { createContext, useContext, useState, useCallback, useEffect, useRef } from 'react';
+import { API_BASE } from '../config';
 import type {
   AppState,
   ProcessingState,
@@ -54,7 +55,7 @@ interface AppContextValue extends AppState {
   savedSessions: Session[];
 }
 
-const STORAGE_KEY = 'cognisync_progress';
+const STORAGE_KEY = 'cognisync_progress_v2';
 
 function loadProgressStats(): ProgressStats {
   try {
@@ -100,10 +101,56 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [lastRawText, setLastRawText] = useState<string | undefined>(undefined);
   const [progressStats, setProgressStats] = useState<ProgressStats>(loadProgressStats);
   const [batchProgress, setBatchProgress] = useState<BatchProgressItem[]>([]);
+  // null means tab is currently hidden — only count while visible
+  const visibleSinceRef = useRef<number | null>(document.hidden ? null : Date.now());
+  const statsRef = useRef(progressStats);
   const [glossaryResult, setGlossaryResult] = useState<GlossaryResult | null>(null);
   const { toasts, showToast, dismissToast } = useToast();
   const sessionStore = useSessionStore(showToast);
   const [savedSessions, setSavedSessions] = useState<Session[]>([]);
+
+  // Keep statsRef in sync so the unload handler always sees current stats
+  useEffect(() => { statsRef.current = progressStats; }, [progressStats]);
+
+  // Track actual time spent — only counts while the tab is visible
+  useEffect(() => {
+    const flush = () => {
+      if (visibleSinceRef.current === null) return 0;
+      const elapsed = Math.floor((Date.now() - visibleSinceRef.current) / 60000);
+      visibleSinceRef.current = null;
+      return elapsed;
+    };
+
+    const onVisibilityChange = () => {
+      if (document.hidden) {
+        const elapsed = flush();
+        if (elapsed > 0) {
+          setProgressStats(prev => {
+            const next = { ...prev, totalReadingTime: prev.totalReadingTime + elapsed };
+            saveProgressStats(next);
+            return next;
+          });
+        }
+      } else {
+        visibleSinceRef.current = Date.now();
+      }
+    };
+
+    const onUnload = () => {
+      const elapsed = flush();
+      if (elapsed > 0) {
+        const next = { ...statsRef.current, totalReadingTime: statsRef.current.totalReadingTime + elapsed };
+        saveProgressStats(next);
+      }
+    };
+
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    window.addEventListener('beforeunload', onUnload);
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      window.removeEventListener('beforeunload', onUnload);
+    };
+  }, []);
 
   // Update streak on mount
   useEffect(() => {
@@ -205,7 +252,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       // Call /synthesize for summary
       let summary = '';
       try {
-        const resp = await fetch('http://localhost:3001/synthesize', {
+        const resp = await fetch(`${API_BASE}/synthesize`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ results, fileNames: successNames }),
@@ -277,7 +324,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       
       // Fetch glossary terms (non-blocking)
       try {
-        const glossaryResp = await fetch('http://localhost:3001/glossary', {
+        const glossaryResp = await fetch(`${API_BASE}/glossary`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text: result.rewrittenText, profile: adaptationProfile }),
@@ -294,12 +341,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         showToast({ type: 'error', title: 'Glossary mode temporarily unavailable', message: '' });
       }
 
-      // Update progress stats
-      const estimatedReadingTime = Math.ceil(text.split(/\s+/).length / 200); // ~200 words per minute
+      // Update progress stats — time is tracked separately via the interval/unload listeners
       const newStats = {
         ...progressStats,
         documentsProcessed: progressStats.documentsProcessed + 1,
-        totalReadingTime: progressStats.totalReadingTime + estimatedReadingTime,
       };
       setProgressStats(newStats);
       saveProgressStats(newStats);

@@ -1,6 +1,6 @@
 import type { MockResponse, AdaptationProfile } from '../types';
 
-const BASE = 'http://localhost:3001';
+import { API_BASE as BASE } from '../config';
 
 export async function getLiveResponse(inputText: string, profile: AdaptationProfile = 'default'): Promise<MockResponse> {
   const res = await fetch(`${BASE}/process`, {
