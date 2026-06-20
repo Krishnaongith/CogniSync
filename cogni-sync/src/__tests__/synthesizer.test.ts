@@ -52,7 +52,7 @@ const processorResultArb: fc.Arbitrary<ProcessorResult> = fc.record({
 
 // ─── Property 15: Synthesis Merge Correctness ────────────────────────────────
 
-describe('Property-based tests — synthesizer', () => {
+describe('Property-based tests - synthesizer', () => {
 
   it(
     // Feature: cognisync-feature-expansion, Property 15: Synthesis Merge Correctness

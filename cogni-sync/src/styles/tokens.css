@@ -1,4 +1,4 @@
-/* CogniSync Design System — Dark-First Edition */
+/* CogniSync Design System - Dark-First Edition */
 
 :root {
   --color-primary: #6366f1;
@@ -288,7 +288,7 @@ p, li {
   }
 }
 
-/* Button & Card tokens — Requirements 11.3, 11.4, 11.5, 11.6, 14.2, 14.4 */
+/* Button & Card tokens - Requirements 11.3, 11.4, 11.5, 11.6, 14.2, 14.4 */
 :root {
   --btn-height-sm: 40px;
   --btn-height-md: 48px;

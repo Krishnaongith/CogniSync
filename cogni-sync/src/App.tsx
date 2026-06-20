@@ -136,7 +136,7 @@ function AppContent({ showHistory, setShowHistory, showDigest, setShowDigest }: 
           padding: 0 clamp(16px, 4vw, 32px) 80px;
         }
 
-        /* Upload section — centered hero card */
+        /* Upload section - centered hero card */
         .upload-section {
           background: var(--glass-bg);
           backdrop-filter: var(--glass-blur);

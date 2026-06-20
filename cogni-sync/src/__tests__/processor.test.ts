@@ -6,7 +6,7 @@ import type { ProcessingStatus } from '../types';
 
 // ─── Property Tests ──────────────────────────────────────────────────────────
 
-describe('Property-based tests — processor', () => {
+describe('Property-based tests - processor', () => {
 
   it(
     // Feature: academic-simplifier, Property 16: Mock delay is within specified range
@@ -87,7 +87,7 @@ describe('Property-based tests — processor', () => {
 
 // ─── Unit Tests ───────────────────────────────────────────────────────────────
 
-describe('Unit tests — processor', () => {
+describe('Unit tests - processor', () => {
 
   it('defaultConfig.useMock is true', () => {
     expect(defaultConfig.useMock).toBe(true);

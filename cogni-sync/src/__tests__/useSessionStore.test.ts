@@ -96,7 +96,7 @@ function sessionArb(savedAtArb?: fc.Arbitrary<string>): fc.Arbitrary<Session> {
 
 // ─── Property Tests ───────────────────────────────────────────────────────────
 
-describe('Property-based tests — useSessionStore pure helpers', () => {
+describe('Property-based tests - useSessionStore pure helpers', () => {
 
   // ── Property 1: Session Save/Restore Round-Trip ──────────────────────────
 

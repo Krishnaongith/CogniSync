@@ -127,7 +127,7 @@ export function WelcomeState({ onUploadClick }: WelcomeStateProps) {
 
           <h2 className="ws-title">Ready to simplify your learning?</h2>
           <p className="ws-sub">
-            Upload a PDF, DOCX, or paste text to transform dense academic content into clear, structured insights — adapted to your learning style.
+            Upload a PDF, DOCX, or paste text to transform dense academic content into clear, structured insights, adapted to your learning style.
           </p>
 
           {onUploadClick && (

@@ -31,7 +31,7 @@ export function HeatmapView({ text, profile }: HeatmapViewProps) {
     <div style={{ maxHeight: 400, overflowY: 'auto', paddingRight: 4 }}>
     <p style={{ lineHeight: 2, margin: 0 }}>
       {sentences.map((s, i) => (
-        <Tooltip key={i} content={`Score: ${Math.round(s.score)} — ${s.label}`} placement="top">
+        <Tooltip key={i} content={`Score: ${Math.round(s.score)}: ${s.label}`} placement="top">
           <span
             style={{
               backgroundColor: scoreToColor(s.score, profile),

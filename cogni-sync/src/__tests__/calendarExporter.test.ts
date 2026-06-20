@@ -52,7 +52,7 @@ const mixedTaskListArb: fc.Arbitrary<Task[]> = fc.tuple(
 
 // ─── Property Tests ───────────────────────────────────────────────────────────
 
-describe('Property-based tests — calendarExporter', () => {
+describe('Property-based tests - calendarExporter', () => {
 
   // ── Property 5: ICS VEVENT Count Matches Tasks with Deadlines ────────────
 

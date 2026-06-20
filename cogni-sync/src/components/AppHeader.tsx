@@ -209,7 +209,7 @@ export function AppHeader() {
       `}</style>
 
       <header className="app-header" role="banner">
-        {/* Logo — left */}
+        {/* Logo - left */}
         <Link to="/" className="app-header-brand" aria-label="CogniSync home">
           <div className="app-header-logo" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -220,7 +220,7 @@ export function AppHeader() {
           <span className="app-header-wordmark">CogniSync</span>
         </Link>
 
-        {/* Tab navigation — center */}
+        {/* Tab navigation - center */}
         <nav className="app-tabs" aria-label="App navigation">
           {TABS.map(({ id, label, path, end, Icon }) => (
             <NavLink
@@ -235,7 +235,7 @@ export function AppHeader() {
           ))}
         </nav>
 
-        {/* Actions — right */}
+        {/* Actions - right */}
         <div className="app-header-actions">
           <div
             role="status"

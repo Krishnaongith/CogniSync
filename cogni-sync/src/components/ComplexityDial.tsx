@@ -48,7 +48,7 @@ export function ComplexityDial({ level, isRewriting, onChange }: ComplexityDialP
 
   return (
     <div style={{ padding: '12px 0' }}>
-      {/* Scoped style for thumb pulse — only active while rewriting, respects prefers-reduced-motion */}
+      {/* Scoped style for thumb pulse - only active while rewriting, respects prefers-reduced-motion */}
       <style>{`
         @media (prefers-reduced-motion: no-preference) {
           .complexity-dial-input${isRewriting ? '.is-rewriting' : '.never'}::-webkit-slider-thumb {

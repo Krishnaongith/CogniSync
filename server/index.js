@@ -12,7 +12,7 @@ const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 const profileInstructions = {
   default: 'Use a neutral, informative tone.',
-  adhd: 'Use short, punchy sentences. Be direct and energetic. Avoid long paragraphs — max 2 sentences per paragraph. Use bullet-friendly language.',
+  adhd: 'Use short, punchy sentences. Be direct and energetic. Avoid long paragraphs, max 2 sentences per paragraph. Use bullet-friendly language.',
   dyslexia: 'Use simple, common words. Keep sentences short. Avoid complex punctuation. Use a calm, clear tone.',
   anxiety: 'Use a gentle, reassuring tone. Avoid urgency language like "must", "immediately", "critical". Frame tasks as manageable steps.',
 };
@@ -49,7 +49,7 @@ Rules:
 - ${profileNote}
 - Return ONLY the JSON object, no markdown, no explanation`;
 
-  const rewritePrompt = `You are an academic content simplifier. Condense and rewrite the given document into a clear, easy-to-read summary of 400 to 600 words maximum. Use plain English at Grade 8 reading level or below. Use short paragraphs with clear headings where helpful. Do not include every detail — focus on the most important ideas, events, and conclusions. ${profileNote} Return ONLY the rewritten text, no explanation, no JSON, no markdown.`;
+  const rewritePrompt = `You are an academic content simplifier. Condense and rewrite the given document into a clear, easy-to-read summary of 400 to 600 words maximum. Use plain English at Grade 8 reading level or below. Use short paragraphs with clear headings where helpful. Do not include every detail, focus on the most important ideas, events, and conclusions. ${profileNote} Return ONLY the rewritten text, no explanation, no JSON, no markdown.`;
 
   try {
     const [structureRaw, rewrittenText] = await Promise.all([

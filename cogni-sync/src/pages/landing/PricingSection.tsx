@@ -17,7 +17,7 @@ const TIERS: PricingTier[] = [
     name: 'Free',
     price: '$0',
     period: '/month',
-    description: 'Get started with the essentials — no credit card required.',
+    description: 'Get started with the essentials, no credit card required.',
     features: [
       '5 documents per month',
       'Basic cognitive profiles',

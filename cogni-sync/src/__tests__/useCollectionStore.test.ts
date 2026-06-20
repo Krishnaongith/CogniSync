@@ -79,7 +79,7 @@ function sessionArb(collectionIdArb?: fc.Arbitrary<string | null | undefined>): 
 
 // ─── Property Tests ───────────────────────────────────────────────────────────
 
-describe('Property-based tests — useCollectionStore', () => {
+describe('Property-based tests - useCollectionStore', () => {
 
   // Feature: session-collections, Property 1: Collection creation produces a valid record
   it('P1: creating a collection from a valid name produces a valid record', () => {

@@ -32,7 +32,7 @@ const SUPPORTED_SET = new Set<string>(SUPPORTED_TYPES);
 
 // ─── Property Tests ──────────────────────────────────────────────────────────
 
-describe('Property-based tests — ingestion', () => {
+describe('Property-based tests - ingestion', () => {
 
   it(
     // Feature: academic-simplifier, Property 1: File size boundary enforcement
@@ -47,7 +47,7 @@ describe('Property-based tests — ingestion', () => {
             expect(result).not.toBeNull();
             expect(result!.code).toBe('FILE_TOO_LARGE');
           } else {
-            // size is fine — only a type error is possible, not a size error
+            // size is fine - only a type error is possible, not a size error
             if (result !== null) {
               expect(result.code).not.toBe('FILE_TOO_LARGE');
             }
@@ -117,7 +117,7 @@ describe('Property-based tests — ingestion', () => {
 
 // ─── Unit Tests ───────────────────────────────────────────────────────────────
 
-describe('Unit tests — ingestion error codes', () => {
+describe('Unit tests - ingestion error codes', () => {
 
   it('returns UNSUPPORTED_TYPE for an unrecognised MIME type', () => {
     const file = makeFileWithSize(1024, 'image/png');

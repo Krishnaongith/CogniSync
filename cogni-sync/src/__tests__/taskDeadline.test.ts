@@ -25,7 +25,7 @@ const invalidDateArb: fc.Arbitrary<string> = fc
 
 // ─── Property Tests ───────────────────────────────────────────────────────────
 
-describe('Property-based tests — task deadline', () => {
+describe('Property-based tests - task deadline', () => {
 
   // ── Property 8: Deadline Mutation Correctness ─────────────────────────────
 

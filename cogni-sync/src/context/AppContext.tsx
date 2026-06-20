@@ -85,7 +85,7 @@ function saveProgressStats(stats: ProgressStats) {
 
 const AppContext = createContext<AppContextValue | null>(null);
 
-/** Pure helper — exported for testability */
+/** Pure helper, exported for testability */
 export function applyDeadlineUpdate(tasks: Task[], taskId: string, deadline: string | undefined): Task[] {
   return tasks.map((t) => t.id === taskId ? { ...t, deadline } : t);
 }
@@ -101,7 +101,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [lastRawText, setLastRawText] = useState<string | undefined>(undefined);
   const [progressStats, setProgressStats] = useState<ProgressStats>(loadProgressStats);
   const [batchProgress, setBatchProgress] = useState<BatchProgressItem[]>([]);
-  // null means tab is currently hidden — only count while visible
+  // null means tab is currently hidden, only count while visible
   const visibleSinceRef = useRef<number | null>(document.hidden ? null : Date.now());
   const statsRef = useRef(progressStats);
   const [glossaryResult, setGlossaryResult] = useState<GlossaryResult | null>(null);
@@ -112,7 +112,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   // Keep statsRef in sync so the unload handler always sees current stats
   useEffect(() => { statsRef.current = progressStats; }, [progressStats]);
 
-  // Track actual time spent — only counts while the tab is visible
+  // Track actual time spent, only counts while the tab is visible
   useEffect(() => {
     const flush = () => {
       if (visibleSinceRef.current === null) return 0;
@@ -194,7 +194,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setBatchProgress([]);
     setGlossaryResult(null);
 
-    // ── Multi-file batch path ──────────────────────────────────────────────
+    // Multi-file batch path────────────────────────────────────────────
     if (Array.isArray(input)) {
       const files = capFileList(input);
       const fileNames = files.map((f) => f.name);
@@ -262,7 +262,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
           summary = data.summary;
         }
       } catch {
-        // Non-fatal — proceed without summary
+        // Non-fatal, proceed without summary
       }
 
       // Build unified result from first successful result as base
@@ -295,7 +295,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    // ── Single file / paste path ───────────────────────────────────────────
+    // Single file / paste path────────────────────────────────────────
     try {
       let text: string;
 
@@ -341,7 +341,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         showToast({ type: 'error', title: 'Glossary mode temporarily unavailable', message: '' });
       }
 
-      // Update progress stats — time is tracked separately via the interval/unload listeners
+      // Update progress stats, time is tracked separately via the interval/unload listeners
       const newStats = {
         ...progressStats,
         documentsProcessed: progressStats.documentsProcessed + 1,

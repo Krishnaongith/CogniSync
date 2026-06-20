@@ -1,4 +1,4 @@
-/* Shared component styles — dark-first */
+/* Shared component styles - dark-first */
 
 @keyframes spin {
   from { transform: rotate(0deg); }
@@ -43,7 +43,7 @@
   color: #f0f4ff;
 }
 
-/* Button component — Requirements 11.3, 11.4, 11.5 */
+/* Button component - Requirements 11.3, 11.4, 11.5 */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -96,7 +96,7 @@
   background: rgba(99, 102, 241, 0.08);
 }
 
-/* App tabs — Requirements 9.3, 9.5, 9.8 */
+/* App tabs - Requirements 9.3, 9.5, 9.8 */
 .app-tabs {
   display: flex;
   align-items: center;

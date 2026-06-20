@@ -36,7 +36,7 @@ const sharePayloadArb: fc.Arbitrary<SharePayload> = fc.record({
 
 // ─── Property Tests ───────────────────────────────────────────────────────────
 
-describe('Property-based tests — shareService', () => {
+describe('Property-based tests - shareService', () => {
 
   // ── Property 12: Share Encode/Decode Round-Trip ───────────────────────────
 

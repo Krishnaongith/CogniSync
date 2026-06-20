@@ -8,7 +8,7 @@ export function extractFromMockResponse(response: MockResponse): ExtractorOutput
 
   // Validate key points count
   if (keyPoints.length < MIN_KEY_POINTS) {
-    // Fewer than 3 — return empty with informational message (caller can surface this)
+    // Fewer than 3, return empty with informational message (caller can surface this)
     return { keyPoints: [], tasks: [] };
   }
 

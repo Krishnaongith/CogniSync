@@ -20,7 +20,7 @@ Climate change means long-term shifts in global temperatures and weather pattern
 
 ## What Causes It?
 
-The main cause is burning fossil fuels like coal, oil, and gas. This releases greenhouse gases — mainly carbon dioxide — into the atmosphere. These gases act like a blanket around Earth, trapping heat and causing temperatures to rise.
+The main cause is burning fossil fuels like coal, oil, and gas. This releases greenhouse gases, mainly carbon dioxide, into the atmosphere. These gases act like a blanket around Earth, trapping heat and causing temperatures to rise.
 
 ## What Are the Effects?
 

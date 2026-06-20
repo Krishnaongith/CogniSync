@@ -117,7 +117,7 @@ function sessionWithTasksArb(now: number): fc.Arbitrary<Session> {
 
 // ─── Property Tests ───────────────────────────────────────────────────────────
 
-describe('Property-based tests — computeDigest', () => {
+describe('Property-based tests - computeDigest', () => {
 
   // ── Property 26: Digest Filters to 7-Day Window and Sorts Ascending ──────
 

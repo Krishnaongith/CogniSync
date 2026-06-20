@@ -56,7 +56,7 @@ describe('scoreText unit tests', () => {
   });
 
   it('computes a reasonable FK grade for a simple known sentence', () => {
-    // "The cat sat on the mat." — very simple sentence, should score easy
+    // "The cat sat on the mat." - very simple sentence, should score easy
     const score = scoreText('The cat sat on the mat.');
     expect(score.fleschReadingEase).toBeGreaterThan(60);
     expect(score.fleschKincaidGrade).toBeLessThan(6);
@@ -64,7 +64,7 @@ describe('scoreText unit tests', () => {
   });
 
   it('clamps fleschReadingEase to [0, 100]', () => {
-    // Single-syllable words in a short sentence can push ease above 100 — must be clamped
+    // Single-syllable words in a short sentence can push ease above 100 - must be clamped
     const score = scoreText('Go.');
     expect(score.fleschReadingEase).toBeGreaterThanOrEqual(0);
     expect(score.fleschReadingEase).toBeLessThanOrEqual(100);

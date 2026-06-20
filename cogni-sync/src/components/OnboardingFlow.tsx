@@ -11,7 +11,7 @@ interface OnboardingFlowProps {
 const TOTAL_STEPS = 3;
 
 const STEP_TITLES = [
-  'Welcome to CogniSync — let\'s set up your profile',
+  'Welcome to CogniSync, let\'s set up your profile',
   'How do you prefer to read?',
   'Try it now',
 ];

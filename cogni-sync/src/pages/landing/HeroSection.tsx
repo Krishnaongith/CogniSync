@@ -199,7 +199,7 @@ export function HeroSection() {
           </h1>
 
           <p className="hero-subheadline">
-            Dense academic text causes cognitive overload. CogniSync simplifies any document into clear key points, plain-language summaries, and actionable to-do lists — adapted to your cognitive profile.
+            Dense academic text causes cognitive overload. CogniSync simplifies any document into clear key points, plain-language summaries, and actionable to-do lists, adapted to your cognitive profile.
           </p>
 
           <div className="hero-cta-group">

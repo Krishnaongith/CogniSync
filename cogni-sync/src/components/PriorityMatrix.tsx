@@ -130,7 +130,7 @@ export function PriorityMatrix({ tasks, taskCompletions, onToggle, onUpdateDeadl
                 minHeight: 80,
               }}
             >
-              {/* Quadrant header — clickable on mobile for accordion */}
+              {/* Quadrant header - clickable on mobile for accordion */}
               <div
                 style={{
                   display: 'flex',
@@ -149,7 +149,7 @@ export function PriorityMatrix({ tasks, taskCompletions, onToggle, onUpdateDeadl
                 tabIndex={0}
                 onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleQuadrant(q.id); } }}
               >
-                {/* Decorative indicator — aria-hidden so screen readers skip it */}
+                {/* Decorative indicator - aria-hidden so screen readers skip it */}
                 <span aria-hidden="true" style={{ fontSize: 13 }}>{q.indicator}</span>
                 <span role="heading" aria-level={3} style={{ fontSize: 14, fontWeight: 700 }}>{q.label}</span>
                 <span

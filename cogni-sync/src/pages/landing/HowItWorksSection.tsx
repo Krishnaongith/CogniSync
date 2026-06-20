@@ -27,7 +27,7 @@ const STEPS = [
   {
     number: '03',
     title: 'Get Simplified Output',
-    description: 'Receive key points, a plain-language summary, and a prioritized task list in under 5 seconds — ready to study, annotate, or export.',
+    description: 'Receive key points, a plain-language summary, and a prioritized task list in under 5 seconds, ready to study, annotate, or export.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 3c-1 3-4 4-4 8a4 4 0 0 0 8 0c0-4-3-5-4-8z"/>
@@ -181,7 +181,7 @@ export function HowItWorksSection() {
           <span className="hiw-label">How It Works</span>
           <h2 id="hiw-heading" className="hiw-heading">Three steps to clarity</h2>
           <p className="hiw-subtext">
-            From raw document to actionable insights in seconds — no setup, no learning curve.
+            From raw document to actionable insights in seconds, no setup, no learning curve.
           </p>
 
           <div className="hiw-steps">

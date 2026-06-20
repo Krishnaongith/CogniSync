@@ -9,7 +9,7 @@ import type { ProcessingState, ReadingMode } from '../types';
 
 // ─── Property Tests ──────────────────────────────────────────────────────────
 
-describe('Property-based tests — reading modes', () => {
+describe('Property-based tests - reading modes', () => {
 
   it(
     // Feature: academic-simplifier, Property 11: Focus View navigation stays in bounds
@@ -88,7 +88,7 @@ describe('Property-based tests — reading modes', () => {
             const resultBefore = processingState.result;
             const statusBefore = processingState.status;
 
-            // Simulate mode switch — pure state transition, does not touch processingState
+            // Simulate mode switch - pure state transition, does not touch processingState
             const newMode = switchMode(initialMode);
             expect(newMode).not.toBe(initialMode);
 
@@ -134,7 +134,7 @@ describe('Property-based tests — reading modes', () => {
 
 // ─── Unit Tests ───────────────────────────────────────────────────────────────
 
-describe('Unit tests — reading mode controller', () => {
+describe('Unit tests - reading mode controller', () => {
 
   describe('switchMode', () => {
     it('toggles from focus to step-by-step', () => {

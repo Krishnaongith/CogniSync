@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import * as fc from 'fast-check';
 import { capFileList } from '../processor/synthesizer';
 
-describe('Property-based tests — batch processor', () => {
+describe('Property-based tests - batch processor', () => {
 
   it(
     // Feature: cognisync-feature-expansion, Property 14: Batch File Count Boundary

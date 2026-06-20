@@ -299,7 +299,7 @@ export function DocumentIngestion({ onSubmit, isLoading, error }: DocumentIngest
           <div
             role="button"
             tabIndex={0}
-            aria-label="Upload a document — click or drag and drop"
+            aria-label="Upload a document, click or drag and drop"
             className={`di-dropzone${dragOver ? ' drag-over' : ''}`}
             onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
             onDragLeave={() => setDragOver(false)}
@@ -386,7 +386,7 @@ export function DocumentIngestion({ onSubmit, isLoading, error }: DocumentIngest
               }}
               maxLength={MAX_PASTE_CHARS}
               rows={10}
-              placeholder="Paste your academic text here — research papers, textbook chapters, lecture notes…"
+              placeholder="Paste your academic text here: research papers, textbook chapters, lecture notes..."
             />
             {validationError && (
               <div role="alert" style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 6, fontSize: 12, color: '#ef4444' }}>

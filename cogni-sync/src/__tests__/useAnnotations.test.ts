@@ -22,7 +22,7 @@ const annotationArb: fc.Arbitrary<Annotation> = fc.record({
 
 // ─── Property Tests ───────────────────────────────────────────────────────────
 
-describe('Property-based tests — useAnnotations pure helpers', () => {
+describe('Property-based tests - useAnnotations pure helpers', () => {
 
   // ── Property 23: Annotation Persistence Round-Trip ───────────────────────
 

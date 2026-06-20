@@ -32,7 +32,7 @@ const PROFILES: ProfileConfig[] = [
       { label: 'Spacing', value: 'Extra wide' },
       { label: 'Tone', value: 'Energetic' },
     ],
-    sampleText: 'Mitochondria make energy for your cells.\n\nThey\'re found inside almost every cell in your body.\n\nThey turn food into ATP — that\'s the fuel your cells run on.\n\nThis process is called cellular respiration. Pretty cool, right?',
+    sampleText: 'Mitochondria make energy for your cells.\n\nThey\'re found inside almost every cell in your body.\n\nThey turn food into ATP, which is the fuel your cells run on.\n\nThis process is called cellular respiration. Pretty cool, right?',
     style: { lineHeight: 2, fontSize: '15px' },
   },
   {
@@ -56,7 +56,7 @@ const PROFILES: ProfileConfig[] = [
       { label: 'Spacing', value: 'Relaxed' },
       { label: 'Tone', value: 'Calm & gentle' },
     ],
-    sampleText: 'Take your time with this. Mitochondria are simply small structures inside your cells that help create energy. There\'s no rush — they work quietly in the background, converting nutrients into a form your body can use. This energy is called ATP.',
+    sampleText: 'Take your time with this. Mitochondria are simply small structures inside your cells that help create energy. There\'s no rush. They work quietly in the background, converting nutrients into a form your body can use. This energy is called ATP.',
     style: { lineHeight: 2, fontSize: '15px' },
   },
 ];
@@ -248,7 +248,7 @@ export function ProfilesSection() {
 
           <div className="profiles-demo">
             <div className="profiles-preview">
-              <p className="profiles-preview-label">Sample paragraph — {activeProfile.label} mode</p>
+              <p className="profiles-preview-label">Sample paragraph: {activeProfile.label} mode</p>
               <p className="profiles-preview-text" style={activeProfile.style}>
                 {activeProfile.sampleText}
               </p>

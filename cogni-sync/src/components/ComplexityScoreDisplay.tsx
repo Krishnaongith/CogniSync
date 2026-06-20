@@ -70,7 +70,7 @@ function ScoreBar({ score, label }: { score: ComplexityScore & { summary?: strin
       </Tooltip>
       <div style={{ fontSize: 12, color: '#94a3b8', fontVariantNumeric: 'tabular-nums' }}>
         Grade {score.fleschKincaidGrade.toFixed(1)}
-        {score.summary && <span style={{ marginLeft: 8, fontStyle: 'italic' }}>— {score.summary}</span>}
+        {score.summary && <span style={{ marginLeft: 8, fontStyle: 'italic' }}>: {score.summary}</span>}
       </div>
     </div>
   );

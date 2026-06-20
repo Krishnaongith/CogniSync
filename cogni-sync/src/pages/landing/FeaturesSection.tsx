@@ -14,7 +14,7 @@ const FEATURES = [
   },
   {
     title: 'Complexity Dial',
-    description: 'Rewrite any content from Grade K to Graduate level with a single slider — instantly re-explained at your target reading level.',
+    description: 'Rewrite any content from Grade K to Graduate level with a single slider, instantly re-explained at your target reading level.',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="12" cy="12" r="3"/>
@@ -25,7 +25,7 @@ const FEATURES = [
   },
   {
     title: 'Priority Matrix',
-    description: 'Eisenhower quadrant auto-classifies your tasks into Do Now, Schedule, Delegate, and Eliminate — so you always know what matters most.',
+    description: 'Eisenhower quadrant auto-classifies your tasks into Do Now, Schedule, Delegate, and Eliminate, so you always know what matters most.',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <rect x="3" y="3" width="8" height="8" rx="1"/>
@@ -38,7 +38,7 @@ const FEATURES = [
   },
   {
     title: 'Focus & Step-by-Step',
-    description: 'Two reading modes for different attention spans — Focus mode shows one point at a time, Step-by-Step walks through content sequentially.',
+    description: 'Two reading modes for different attention spans: Focus mode shows one point at a time, Step-by-Step walks through content sequentially.',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="12" cy="12" r="10"/>
@@ -61,7 +61,7 @@ const FEATURES = [
   },
   {
     title: 'Session History + Calendar',
-    description: 'Save every session for later review, and export task deadlines directly to your calendar — never miss a due date again.',
+    description: 'Save every session for later review, and export task deadlines directly to your calendar, so you never miss a due date again.',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
