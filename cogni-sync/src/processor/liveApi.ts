@@ -1,8 +1,14 @@
 import type { MockResponse, AdaptationProfile } from '../types';
-
 import { API_BASE as BASE } from '../config';
+import { MOCK_RESPONSE } from './mockData';
+
+const USE_MOCK = import.meta.env.VITE_USE_MOCK === 'true';
 
 export async function getLiveResponse(inputText: string, profile: AdaptationProfile = 'default'): Promise<MockResponse> {
+  if (USE_MOCK) {
+    await new Promise(r => setTimeout(r, 800));
+    return MOCK_RESPONSE;
+  }
   const res = await fetch(`${BASE}/process`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

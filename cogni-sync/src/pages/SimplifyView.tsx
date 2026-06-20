@@ -360,7 +360,9 @@ export function SimplifyView() {
             </Card>
 
             {glossaryResult && glossaryResult.terms.length > 0 && (
-              <GlossaryPanel terms={glossaryResult.terms} />
+              <div style={{ marginBottom: 24 }}>
+                <GlossaryPanel terms={glossaryResult.terms} />
+              </div>
             )}
 
             <Card accentColor="#34d399" icon={<ScoreIcon />} title="Complexity Score" animationDelay={180} collapsible>

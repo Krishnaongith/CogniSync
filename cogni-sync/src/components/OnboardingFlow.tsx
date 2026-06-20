@@ -33,7 +33,7 @@ const FOCUSABLE_SELECTORS = [
 
 export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
   const [step, setStep] = useState(0); // 0-indexed
-  const { adaptationProfile, setAdaptationProfile, readingMode, setReadingMode } = useAppContext();
+  const { adaptationProfile, setAdaptationProfile, readingMode, setReadingMode, submitDocument } = useAppContext();
   const modalRef = useRef<HTMLDivElement>(null);
   const isLastStep = step === TOTAL_STEPS - 1;
 
@@ -313,10 +313,10 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
                     <line x1="12" y1="8" x2="12" y2="12"/>
                     <line x1="12" y1="16" x2="12.01" y2="16"/>
                   </svg>
-                  A sample document is ready — click 'Analyze' to try it!
+                  Upload a document below to try it out!
                 </div>
                 <DocumentIngestion
-                  onSubmit={() => {}}
+                  onSubmit={(text) => { onComplete(); submitDocument(text); }}
                   isLoading={false}
                 />
               </>
