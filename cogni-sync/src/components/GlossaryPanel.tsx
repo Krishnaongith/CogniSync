@@ -9,7 +9,7 @@ export function GlossaryPanel({ terms }: GlossaryPanelProps) {
 
   return (
     <div style={{ marginTop: 24 }}>
-      <h3 style={{ fontSize: 16, fontWeight: 700, color: '#1a1a2e', marginBottom: 12 }}>
+      <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 12 }}>
         Glossary
       </h3>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -17,19 +17,19 @@ export function GlossaryPanel({ terms }: GlossaryPanelProps) {
           <div
             key={i}
             style={{
-              background: '#f8f7ff',
-              border: '1px solid #e0e0f0',
+              background: 'var(--color-surface, rgba(255,255,255,0.05))',
+              border: '1px solid var(--color-border, rgba(255,255,255,0.1))',
               borderRadius: 8,
               padding: '12px 16px',
             }}
           >
-            <p style={{ margin: '0 0 4px', fontWeight: 700, color: '#4f46e5', fontSize: 14 }}>
+            <p style={{ margin: '0 0 4px', fontWeight: 700, color: '#7c6fcd', fontSize: 14 }}>
               {t.term}
             </p>
-            <p style={{ margin: '0 0 4px', color: '#333', fontSize: 14 }}>
+            <p style={{ margin: '0 0 4px', fontSize: 14 }}>
               {t.definition}
             </p>
-            <p style={{ margin: 0, color: '#666', fontSize: 13, fontStyle: 'italic' }}>
+            <p style={{ margin: 0, opacity: 0.65, fontSize: 13, fontStyle: 'italic' }}>
               "{t.exampleSentence}"
             </p>
           </div>
