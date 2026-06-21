@@ -59,7 +59,7 @@ const TIERS: PricingTier[] = [
       'Priority support',
       'Custom onboarding',
     ],
-    cta: { label: 'Contact Us', href: 'mailto:hello@cognisync.app' },
+    cta: { label: 'Contact Us', href: 'mailto:helpcognisync@gmail.com' },
     highlighted: false,
   },
 ];
