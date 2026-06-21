@@ -1,6 +1,6 @@
-# CogniSync - Ideation & Build Process
+# CogniSync - Ideation and Build Process
 
-This document captures the ideation process behind CogniSync, built during a hackathon using **AWS Kiro** (with MCPs, Skills, and Steerings). It reflects how the project evolved from a rough problem statement to a shipped product.
+This document captures the ideation process behind CogniSync. It reflects how the project evolved from a rough problem statement to a shipped product.
 
 ---
 
@@ -42,8 +42,8 @@ As we built, new ideas surfaced. These were organized by effort vs. impact:
 
 | Feature | Why It Matters |
 |---|---|
-| Calendar Export | Detected deadlines → `.ics` export. Makes the app worth opening weekly. |
-| Multi-Document Synthesis | Upload a full course folder → one unified weekly action plan. |
+| Calendar Export | Detected deadlines exported as `.ics` files. Makes the app worth opening weekly. |
+| Multi-Document Synthesis | Upload a full course folder and get one unified weekly action plan. |
 | Complexity Heatmap | Users see exactly where the friction is, not just an aggregate score. |
 | Saved Sessions | Return to last week's syllabus without re-uploading - makes it a habit. |
 | Shareable Output | Students share with study groups, tutors, or accessibility offices. |
@@ -55,15 +55,15 @@ As we built, new ideas surfaced. These were organized by effort vs. impact:
 | LMS Browser Extension | Chrome/Firefox button on Canvas/Blackboard pages - zero friction. |
 | Google Drive / OneDrive Import | Pick a file directly from cloud storage. |
 | Notion / Obsidian Export | Export key points and tasks directly into a note. |
-| Slack / Discord Bot | Paste a link in a study server → bot replies with the summary. |
+| Slack / Discord Bot | Paste a link in a study server and the bot replies with the summary. |
 
 ### User Control
 
 | Feature | Why It Matters |
 |---|---|
 | Custom Profiles | Not everyone fits ADHD/Dyslexia/Anxiety boxes. Let users define their own. |
-| Highlight & Ask | Select any sentence → ask a follow-up ("What does this mean?"). |
-| Glossary Mode | Auto-detect jargon → mini glossary card. Huge for first-gen and ESL students. |
+| Highlight and Ask | Select any sentence and ask a follow-up ("What does this mean?"). |
+| Glossary Mode | Auto-detect jargon and show a mini glossary card. Huge for first-gen and ESL students. |
 | Audio Read-Aloud | TTS via browser Web Speech API - no extra cost. |
 | Task Due Date Editing | Manual override for AI-detected deadlines. AI gets it wrong sometimes. |
 
@@ -71,7 +71,7 @@ As we built, new ideas surfaced. These were organized by effort vs. impact:
 
 | Feature | Why It Matters |
 |---|---|
-| URL Ingestion | Paste a URL → scrape and process the page. Works for online syllabi. |
+| URL Ingestion | Paste a URL and scrape and process the page. Works for online syllabi. |
 | Keyboard Shortcuts | Navigate Focus View, toggle modes without a mouse. |
 | High Contrast Theme | A real accessibility need, not just a preference. |
 
@@ -79,9 +79,9 @@ As we built, new ideas surfaced. These were organized by effort vs. impact:
 
 ## What We Actually Built
 
-By the end of the hackathon, we had shipped: document ingestion (PDF/DOCX/PPTX/XLSX/TXT), AI simplification via Amazon Nova Pro, adaptation profiles, the complexity dial, priority matrix, Focus View, Step-by-Step View, complexity heatmap, glossary, calendar export, session collections, share links, a weekly digest, and a Chrome/Firefox browser extension.
+By the end of the initial build, we had shipped: document ingestion (PDF/DOCX/PPTX/XLSX/TXT), AI simplification via Anthropic Claude, adaptation profiles, the complexity dial, priority matrix, Focus View, Step-by-Step View, complexity heatmap, glossary, highlight and ask, calendar export, session collections, share links, a weekly digest, and a Chrome/Firefox browser extension.
 
-The ideation-to-shipped ratio was high. AWS Kiro - specifically its MCP integrations, Skills system, and Steerings - made it possible to move from feature idea to working implementation faster than any other toolchain we've used.
+The app is deployed publicly - frontend on Vercel, backend on Render.
 
 ---
 

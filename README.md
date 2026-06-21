@@ -8,7 +8,11 @@ Upload a syllabus, paste assignment instructions, or drop in lecture notes. Cogn
 
 Built for students with ADHD, dyslexia, anxiety, and other cognitive differences - but genuinely useful for anyone facing a wall of academic text.
 
-> Built at a hackathon using **AWS Kiro** (MCPs, Skills, Steerings) + **Amazon Bedrock (Nova Pro)**
+---
+
+## Live App
+
+Frontend: [cogni-sync-delta.vercel.app](https://cogni-sync-delta.vercel.app)
 
 ---
 
@@ -16,20 +20,20 @@ Built for students with ADHD, dyslexia, anxiety, and other cognitive differences
 
 ### Core
 - **Document ingestion** - PDF, DOCX, PPTX, XLSX, TXT up to 100 MB, or paste text directly
-- **AI-powered simplification** - Key point extraction, task generation, and plain-language rewrite in one pass via Amazon Nova Pro (AWS Bedrock)
+- **AI-powered simplification** - Key point extraction, task generation, and plain-language rewrite in one pass via Anthropic Claude
 - **Adaptation profiles** - ADHD, Dyslexia, Anxiety, and Default profiles that tune AI tone, sentence structure, and UI layout
 - **Complexity dial** - Rewrite content at any reading level from Kindergarten to Graduate in real time
 - **Priority matrix** - Tasks auto-classified into Eisenhower quadrants (Do Now / Schedule / Delegate / Eliminate)
 - **Reading modes** - Focus View (one concept at a time) and Step-by-Step View (numbered instructions)
-- **Complexity scoring** - Client-side Flesch-Kincaid before/after scores with percentage reduction shown visually
+- **Complexity scoring** - Flesch-Kincaid before/after scores with percentage reduction shown visually
 
-### Organization & Sharing
+### Organization and Sharing
 - **Session collections** - Organize saved sessions into named collections with rename, move, and inline creation
 - **Share links** - Encode simplified content into shareable URLs
 - **Calendar export** - Detected deadlines exported as `.ics` files
 
-### Accessibility & UX
-- **Complexity heatmap** - Sentence-level difficulty visualization (green → red)
+### Accessibility and UX
+- **Complexity heatmap** - Sentence-level difficulty visualization (green to red)
 - **Glossary** - Auto-generated jargon definitions with example sentences
 - **Weekly digest** - Tasks due in the next 7 days, surfaced across all sessions
 - **Browser extension** - Chrome and Firefox extension for in-page simplification
@@ -57,7 +61,7 @@ CogniSync/
 │   │   ├── styles/      # Design tokens + component CSS
 │   │   └── types/       # TypeScript interfaces
 │   └── __tests__/       # Property-based + unit tests
-├── server/              # Node.js + Express backend (AWS Bedrock)
+├── server/              # Node.js + Express backend (Anthropic Claude API)
 ├── extension/           # Browser extension (Chrome + Firefox)
 └── docs/                # Project documentation and ideation
 ```
@@ -69,7 +73,7 @@ CogniSync/
 ### Prerequisites
 
 - Node.js 18+
-- AWS credentials configured for Bedrock access (required for live AI mode)
+- An Anthropic API key (get one at [console.anthropic.com](https://console.anthropic.com))
 
 ### Frontend
 
@@ -81,7 +85,7 @@ npm run dev
 
 Opens at `http://localhost:5173`.
 
-> The frontend works **without** the backend using a built-in mock API. Toggle via the `useMock` config flag in `processor.ts`.
+> The frontend works without the backend using a built-in mock mode. Set `VITE_USE_MOCK=true` in `cogni-sync/.env.local` to enable it.
 
 ### Backend
 
@@ -91,7 +95,13 @@ npm install
 npm start
 ```
 
-Runs at `http://localhost:3001`. Exposes `/process`, `/rewrite`, `/glossary`, and `/synthesize` endpoints.
+Create a `server/.env` file with your API key:
+
+```
+ANTHROPIC_API_KEY=sk-ant-...
+```
+
+Runs at `http://localhost:3001`.
 
 ### Tests
 
@@ -110,12 +120,12 @@ Runs Vitest with property-based tests (fast-check, 100 iterations per property) 
 |-------------|--------------------------------------|
 | Frontend    | React 18, TypeScript, Vite           |
 | Routing     | React Router v7                      |
-| AI          | Amazon Nova Pro via AWS Bedrock      |
+| AI          | Anthropic Claude (claude-haiku-4-5)  |
 | Backend     | Node.js, Express                     |
+| Hosting     | Vercel (frontend), Render (backend)  |
 | Persistence | IndexedDB (localStorage fallback)    |
 | Testing     | Vitest, fast-check, Testing Library  |
 | File parsing| pdfjs-dist, mammoth, jszip, xlsx     |
-| AI Tooling  | AWS Kiro (MCPs, Skills, Steerings)   |
 
 ---
 
@@ -133,18 +143,6 @@ Runs Vitest with property-based tests (fast-check, 100 iterations per property) 
 ## Roadmap
 
 See [`docs/ROADMAP.md`](docs/ROADMAP.md) for planned features and priorities.
-
----
-
-## Ideation
-
-Curious how this project came together? See [`docs/IDEATION.md`](docs/IDEATION.md) for the original MVP brainstorm and feature evolution - built iteratively using AWS Kiro.
-
----
-
-## Contributing
-
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) for guidelines.
 
 ---
 

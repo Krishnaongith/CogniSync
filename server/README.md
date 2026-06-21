@@ -1,4 +1,4 @@
-# cogni-sync-server — Backend
+# cogni-sync-server
 
 Express server that proxies requests to the Anthropic Claude API to simplify academic content.
 
@@ -8,7 +8,7 @@ Express server that proxies requests to the Anthropic Claude API to simplify aca
 - npm 9+
 - An Anthropic API key (get one at [console.anthropic.com](https://console.anthropic.com))
 
-## Install & Run
+## Install and Run
 
 ```bash
 npm install
@@ -16,17 +16,17 @@ npm start        # node index.js
 npm run dev      # node --watch index.js (auto-restarts on file change)
 ```
 
-The server listens on **port 3001** and accepts requests from `http://localhost:5173` (CORS).
+The server listens on **port 3001**.
 
 ## API Key
 
-Set your Anthropic API key as an environment variable before starting the server:
+Create a `.env` file in this directory:
 
-```bash
-export ANTHROPIC_API_KEY=sk-ant-...
+```
+ANTHROPIC_API_KEY=sk-ant-...
 ```
 
-> **Note:** The server does not use dotenv. The key must be exported in your shell session before running `npm start` — creating a `.env` file will have no effect.
+The server loads it automatically on startup. In production (Render), set the key as an environment variable in the Render dashboard instead.
 
 The server uses model `claude-haiku-4-5` (fast and cost-effective for text simplification).
 
