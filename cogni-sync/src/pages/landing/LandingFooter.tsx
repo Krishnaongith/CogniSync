@@ -179,7 +179,7 @@ export function LandingFooter() {
                 <ul>
                   <li>
                     <a
-                      href="https://github.com/cognisync/cognisync"
+                      href="https://github.com/Krishnaongith/CogniSync"
                       className="landing-footer-link"
                       target="_blank"
                       rel="noopener noreferrer"
