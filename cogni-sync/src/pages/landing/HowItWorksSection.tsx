@@ -1,4 +1,5 @@
 import React from 'react';
+import { useGsapReveal, useGsapHeading } from '../../hooks/useGsapReveal';
 
 const STEPS = [
   {
@@ -40,6 +41,9 @@ const STEPS = [
 ];
 
 export function HowItWorksSection() {
+  const headingRef = useGsapHeading();
+  const cardsRef = useGsapReveal(0.15);
+
   return (
     <>
       <style>{`
@@ -179,14 +183,14 @@ export function HowItWorksSection() {
       <section id="how-it-works" className="hiw-section" aria-labelledby="hiw-heading">
         <div className="hiw-inner">
           <span className="hiw-label">How It Works</span>
-          <h2 id="hiw-heading" className="hiw-heading">Three steps to clarity</h2>
+          <h2 id="hiw-heading" className="hiw-heading" ref={headingRef as React.RefObject<HTMLHeadingElement>}>Three steps to clarity</h2>
           <p className="hiw-subtext">
             From raw document to actionable insights in seconds, no setup, no learning curve.
           </p>
 
-          <div className="hiw-steps">
+          <div className="hiw-steps" ref={cardsRef}>
             {STEPS.map((step) => (
-              <div key={step.number} className="hiw-step">
+              <div key={step.number} className="hiw-step" data-reveal>
                 <div className="hiw-step-number" aria-hidden="true">{step.number}</div>
                 <div className="hiw-step-icon" aria-hidden="true">{step.icon}</div>
                 <h3 className="hiw-step-title">{step.title}</h3>

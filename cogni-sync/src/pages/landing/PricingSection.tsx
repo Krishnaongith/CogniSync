@@ -1,4 +1,5 @@
 import React from 'react';
+import { useGsapReveal, useGsapHeading } from '../../hooks/useGsapReveal';
 import { Link } from 'react-router-dom';
 
 interface PricingTier {
@@ -73,6 +74,9 @@ function CheckIcon() {
 }
 
 export function PricingSection() {
+  const headingRef = useGsapHeading();
+  const cardsRef = useGsapReveal(0.15);
+
   return (
     <>
       <style>{`
@@ -293,16 +297,17 @@ export function PricingSection() {
       <section id="pricing" className="pricing-section" aria-labelledby="pricing-heading">
         <div className="pricing-inner">
           <span className="pricing-label">Pricing</span>
-          <h2 id="pricing-heading" className="pricing-heading">Simple, transparent pricing</h2>
+          <h2 id="pricing-heading" className="pricing-heading" ref={headingRef as React.RefObject<HTMLHeadingElement>}>Simple, transparent pricing</h2>
           <p className="pricing-subtext">
             Start free, upgrade when you're ready. No hidden fees, no surprises.
           </p>
 
-          <div className="pricing-grid">
+          <div className="pricing-grid" ref={cardsRef}>
             {TIERS.map((tier) => (
               <div
                 key={tier.name}
                 className={`pricing-card${tier.highlighted ? ' pricing-card--highlighted' : ''}`}
+                data-reveal
               >
                 {tier.badge && (
                   <div className="pricing-badge" aria-label="Most popular plan">{tier.badge}</div>

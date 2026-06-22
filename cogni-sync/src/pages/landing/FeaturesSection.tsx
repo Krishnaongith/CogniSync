@@ -1,4 +1,5 @@
 import React from 'react';
+import { useGsapReveal, useGsapHeading } from '../../hooks/useGsapReveal';
 
 const FEATURES = [
   {
@@ -75,6 +76,9 @@ const FEATURES = [
 ];
 
 export function FeaturesSection() {
+  const headingRef = useGsapHeading();
+  const cardsRef = useGsapReveal(0.1);
+
   return (
     <>
       <style>{`
@@ -184,14 +188,14 @@ export function FeaturesSection() {
       <section className="features-section" aria-labelledby="features-heading">
         <div className="features-inner">
           <span className="features-label">Features</span>
-          <h2 id="features-heading" className="features-heading">Everything your brain needs</h2>
+          <h2 id="features-heading" className="features-heading" ref={headingRef as React.RefObject<HTMLHeadingElement>}>Everything your brain needs</h2>
           <p className="features-subtext">
             Six powerful tools working together to reduce cognitive load and help you study smarter.
           </p>
 
-          <div className="features-grid">
+          <div className="features-grid" ref={cardsRef}>
             {FEATURES.map((feature) => (
-              <div key={feature.title} className="feature-card">
+              <div key={feature.title} className="feature-card" data-reveal>
                 <div
                   className="feature-icon"
                   aria-hidden="true"

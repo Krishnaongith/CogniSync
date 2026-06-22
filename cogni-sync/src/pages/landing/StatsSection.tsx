@@ -1,4 +1,5 @@
 import React from 'react';
+import { useGsapReveal, useGsapHeading } from '../../hooks/useGsapReveal';
 
 const STATS = [
   { value: '40%', label: 'Less Cognitive Load' },
@@ -32,6 +33,10 @@ const TESTIMONIALS = [
 ];
 
 export function StatsSection() {
+  const statsRef = useGsapReveal(0.1);
+  const headingRef = useGsapHeading();
+  const testimonialsRef = useGsapReveal(0.12);
+
   return (
     <>
       <style>{`
@@ -196,9 +201,9 @@ export function StatsSection() {
 
       <section className="stats-section" aria-labelledby="stats-heading">
         <div className="stats-inner">
-          <div className="stats-grid" role="list" aria-label="Key statistics">
+          <div className="stats-grid" role="list" aria-label="Key statistics" ref={statsRef}>
             {STATS.map((stat) => (
-              <div key={stat.label} className="stat-card" role="listitem">
+              <div key={stat.label} className="stat-card" role="listitem" data-reveal>
                 <div className="stat-value" aria-label={`${stat.value} ${stat.label}`}>{stat.value}</div>
                 <div className="stat-label">{stat.label}</div>
               </div>
@@ -206,11 +211,11 @@ export function StatsSection() {
           </div>
 
           <span className="testimonials-label">Testimonials</span>
-          <h2 id="stats-heading" className="testimonials-heading">What students are saying</h2>
+          <h2 id="stats-heading" className="testimonials-heading" ref={headingRef as React.RefObject<HTMLHeadingElement>}>What students are saying</h2>
 
-          <div className="testimonials-grid">
+          <div className="testimonials-grid" ref={testimonialsRef}>
             {TESTIMONIALS.map((t) => (
-              <figure key={t.name} className="testimonial-card">
+              <figure key={t.name} className="testimonial-card" data-reveal>
                 <svg className="testimonial-quote-icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                 </svg>

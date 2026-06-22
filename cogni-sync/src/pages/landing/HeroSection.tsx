@@ -59,7 +59,7 @@ export function HeroSection() {
 
         .hero-content {
           position: relative;
-          z-index: 2;
+          z-index: 3;
           max-width: 860px;
           margin: 0 auto;
           padding: clamp(80px, 12vw, 140px) clamp(20px, 5vw, 48px) clamp(60px, 8vw, 100px);
@@ -191,7 +191,7 @@ export function HeroSection() {
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
             </svg>
-            AI-Powered Study Tools
+            AI-Powered Study Tool
           </div>
 
           <h1 id="hero-headline" className="hero-headline">

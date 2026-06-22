@@ -195,7 +195,7 @@ export function LandingFooter() {
           <div className="landing-footer-divider" aria-hidden="true" />
 
           <div className="landing-footer-bottom">
-            <p className="landing-footer-copyright">© 2025 CogniSync. All rights reserved.</p>
+            <p className="landing-footer-copyright">© 2026 CogniSync. All rights reserved.</p>
             <div className="landing-footer-legal">
               <Link to="/privacy" className="landing-footer-legal-link">Privacy Policy</Link>
               <Link to="/terms" className="landing-footer-legal-link">Terms of Service</Link>

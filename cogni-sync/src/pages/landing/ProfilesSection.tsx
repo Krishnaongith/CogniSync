@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useGsapReveal, useGsapHeading } from '../../hooks/useGsapReveal';
 import type { AdaptationProfile } from '../../types';
 
 interface ProfileConfig {
@@ -63,6 +64,8 @@ const PROFILES: ProfileConfig[] = [
 
 export function ProfilesSection() {
   const [selected, setSelected] = useState<AdaptationProfile>('default');
+  const headingRef = useGsapHeading();
+  const demoRef = useGsapReveal(0.1);
 
   const activeProfile = PROFILES.find((p) => p.id === selected)!;
 
@@ -223,7 +226,7 @@ export function ProfilesSection() {
       <section className="profiles-section" aria-labelledby="profiles-heading">
         <div className="profiles-inner">
           <span className="profiles-label">Cognitive Profiles</span>
-          <h2 id="profiles-heading" className="profiles-heading">See the difference each profile makes</h2>
+          <h2 id="profiles-heading" className="profiles-heading" ref={headingRef as React.RefObject<HTMLHeadingElement>}>See the difference each profile makes</h2>
           <p className="profiles-subtext">
             Switch between profiles to see how the same content is adapted for different cognitive needs.
           </p>
@@ -246,15 +249,15 @@ export function ProfilesSection() {
             ))}
           </div>
 
-          <div className="profiles-demo">
-            <div className="profiles-preview">
+          <div className="profiles-demo" ref={demoRef}>
+            <div className="profiles-preview" data-reveal>
               <p className="profiles-preview-label">Sample paragraph: {activeProfile.label} mode</p>
               <p className="profiles-preview-text" style={activeProfile.style}>
                 {activeProfile.sampleText}
               </p>
             </div>
 
-            <div className="profiles-traits">
+            <div className="profiles-traits" data-reveal>
               <h3 className="profiles-traits-heading" style={{ color: activeProfile.color }}>
                 {activeProfile.label} Profile
               </h3>
